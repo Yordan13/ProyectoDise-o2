@@ -16,4 +16,7 @@ public abstract class Moneda {
     public double getMonto(){
         return monto;
     }
+    public void setMonto(double cantidad){
+        monto=cantidad;
+    }
 }
