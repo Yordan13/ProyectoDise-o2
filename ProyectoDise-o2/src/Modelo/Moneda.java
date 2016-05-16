@@ -5,7 +5,10 @@ public abstract class Moneda {
     private double monto;
     private static double tipoCambio;
 
-    public Moneda(double monto) {
+    protected Moneda(double monto) {
+        this.monto = monto;
+    }
+    public Moneda(double monto, double tipoCambio) {
         this.monto = monto;
         this.tipoCambio = tipoCambio;
     }

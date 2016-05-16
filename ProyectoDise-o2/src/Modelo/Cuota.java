@@ -2,12 +2,14 @@ package Modelo;
 
 
 public class Cuota {
-    private Moneda interes;
+    private int periodo;
+    private Moneda cuotaInteres;
     private Moneda deuda;
     private Moneda amortizacion;
 
-    public Cuota(Moneda interes, Moneda deuda, Moneda amortizacion) {
-        this.interes = interes;
+    public Cuota(int periodo,Moneda cuotaInteres, Moneda deuda, Moneda amortizacion) {
+        this.periodo=periodo;
+        this.cuotaInteres = cuotaInteres;
         this.deuda = deuda;
         this.amortizacion = amortizacion;
     }
