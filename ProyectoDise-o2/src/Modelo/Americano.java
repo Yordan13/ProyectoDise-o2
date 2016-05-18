@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Americano extends SistemaAmortizacion{
 
-    public Americano(Cliente cliente, Moneda monto, Integer periodo, Date fecha, Double tasaInteres) {
+    public Americano(Cliente cliente, Moneda monto, Integer periodo, String fecha, Double tasaInteres) {
         super(cliente, monto, periodo, fecha, tasaInteres);
     }
     private double calcularCuotaInteres(){

@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Aleman extends SistemaAmortizacion{
 
-    public Aleman(Cliente cliente, Moneda monto, Integer periodo,Date fecha,Double tasaInteres) {
+    public Aleman(Cliente cliente, Moneda monto, Integer periodo,String fecha,Double tasaInteres) {
         super(cliente, monto, periodo,fecha,tasaInteres);
     }
     protected double calcularAmortizacion() {
