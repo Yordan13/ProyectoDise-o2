@@ -11,10 +11,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(Dolar.class.getName());
         double p=938383;
-        //Dolar d =(Dolar)instance("Modelo.dolar", new Object[]{p,p});
-        socket();
-        System.out.println(obtenerIndicadoresEconomicosXML("317", new Date().toString(), new Date().toString(), 
-                "Yordan", "N"));
+        Dolar d =(Dolar)instance("Modelo.Dolar", new Object[]{p,p,"dolares"});
+        //socket();
         
     }
     static Object instance (String type,Object [] parametros ){
@@ -25,7 +23,7 @@ public class Main {
             for(int contador=0;contador< parametros.length;contador++){
                 tipos[contador]=parametros[contador].getClass();
             }
-            Constructor c=h.getDeclaredConstructor(tipos);
+            Constructor c=h.getConstructor(tipos);
             return c.newInstance(parametros);
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -45,10 +43,5 @@ public class Main {
                                + "the connection.");
         }
     }
-
-    private static String obtenerIndicadoresEconomicosXML(java.lang.String tcIndicador, java.lang.String tcFechaInicio, java.lang.String tcFechaFinal, java.lang.String tcNombre, java.lang.String tnSubNiveles) {
-        cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos service = new cr.fi.bccr.sdde.ws.WsIndicadoresEconomicos();
-        cr.fi.bccr.sdde.ws.WsIndicadoresEconomicosSoap port = service.getWsIndicadoresEconomicosSoap();
-        return port.obtenerIndicadoresEconomicosXML(tcIndicador, tcFechaInicio, tcFechaFinal, tcNombre, tnSubNiveles);
-    }
 }
+
