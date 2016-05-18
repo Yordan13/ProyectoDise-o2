@@ -3,10 +3,10 @@ package Modelo;
 
 public class Colon extends Moneda{
     
-    public Colon(double monto) {
-        super(monto);
+    public Colon(Double monto,String tipo) {
+        super(monto,tipo);
     }
-    public Colon(double monto,double tipocambio){
-        super(monto, tipocambio);
+    public Colon(Double monto,Double tipocambio,String tipo){
+        super(monto, tipocambio,tipo);
     }
 }

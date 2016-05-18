@@ -3,13 +3,16 @@ package Modelo;
 
 public abstract class Moneda {
     private double monto;
+    private String tipo;
     private static double tipoCambio;
 
-    protected Moneda(double monto) {
+    public Moneda(double monto,String tipo) {
         this.monto = monto;
+        this.tipo=tipo;
     }
-    public Moneda(double monto, double tipoCambio) {
+    public Moneda(double monto, double tipoCambio,String tipo) {
         this.monto = monto;
+        this.tipo=tipo;
         this.tipoCambio = tipoCambio;
     }
     public double getTipoCambio(){

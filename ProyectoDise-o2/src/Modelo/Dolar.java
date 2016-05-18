@@ -2,10 +2,10 @@ package Modelo;
 
 public class Dolar extends Moneda {
     
-    public Dolar(double monto) {
-        super(monto);
+    public Dolar(Double monto,String tipo) {
+        super(monto,tipo);
     }
-    public Dolar(double monto, double tipoCambio){
-        super(monto/tipoCambio,tipoCambio);
+    public Dolar(Double monto, Double tipoCambio,String tipo){
+        super(monto/tipoCambio,tipoCambio,tipo);
     }
 }

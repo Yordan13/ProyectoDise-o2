@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:xalan="http://xml.apache.org/xslt" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-wsIndicadoresEconomicos" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos"/>
+        <property name="wsdl-wsIndicadoresEconomicos" location="xml-resources/web-service-references/wsIndicadoresEconomicos/wsdl/indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos" destdir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos" wsdl="${wsdl-wsIndicadoresEconomicos}" catalog="catalog.xml" extension="true" verbose="true" fork="false" wsdlLocation="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-wsIndicadoresEconomicos}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-wsIndicadoresEconomicos" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/wsIndicadoresEconomicos"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/cr/fi/bccr/sdde/ws"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-wsIndicadoresEconomicos"/>
+</project>

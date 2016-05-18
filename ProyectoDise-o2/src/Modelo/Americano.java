@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Americano extends SistemaAmortizacion{
 
-    public Americano(Cliente cliente, Moneda monto, int periodo, Date fecha, double tasaInteres) {
+    public Americano(Cliente cliente, Moneda monto, Integer periodo, Date fecha, Double tasaInteres) {
         super(cliente, monto, periodo, fecha, tasaInteres);
     }
     private double calcularCuotaInteres(){
@@ -24,6 +24,6 @@ public class Americano extends SistemaAmortizacion{
             deudaActual-=amortizacion;
         }
         amortizacion=calcularAmortizacion();
-        Cuota cuotaActual=crearCuota(periodoActual, cuotaInteres, deudaActual, amortizacion);
+        Cuota cuotaActual=crearCuota(periodo, cuotaInteres, deudaActual, amortizacion);
     }
 }
