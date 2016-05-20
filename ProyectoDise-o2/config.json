@@ -1,0 +1,18 @@
+{
+	"identificadores":{
+		"moneda":{
+			"dolares": "Modelo.Dolar",
+			"colones" : "Modelo.Colon"
+		},
+		"sistema":{
+			"frances" : "Modelo.Frances",
+			"aleman" : "Modelo.Aleman",
+			"americano" : "Modelo.Americano"
+		},
+		"cliente":{
+			"persona" : "Modelo.Persona"
+		}
+	},
+	"montoMinimoSistema" : 0.0,
+	"tasaInteresMinimo" : 0.0
+}

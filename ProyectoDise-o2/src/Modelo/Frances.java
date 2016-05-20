@@ -28,7 +28,7 @@ public class Frances extends SistemaAmortizacion{
         return (calculoElevado*tasaInteres)/(calculoElevado-1);
     }
     @Override
-    protected void generarCuotas() {
+    public void generarCuotas() throws Exception{
         double cuotaConstante=calcularCuotaConstante();
         double amortizacion=0;
         double cuotaInteres=0;
@@ -37,6 +37,7 @@ public class Frances extends SistemaAmortizacion{
             amortizacion=calcularAmortizacion(cuotaConstante, periodoActual);
             cuotaInteres=calcularCuotaInteres(cuotaConstante, periodoActual);
             Cuota cuotaActual=crearCuota(periodoActual, cuotaInteres, deudaActual, amortizacion);
+            agregarCuota(cuotaActual);
             deudaActual-=amortizacion;
         }
     }

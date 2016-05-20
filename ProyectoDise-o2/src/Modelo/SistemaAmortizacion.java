@@ -1,8 +1,9 @@
 
 package Modelo;
 
+import Factory.FactoryMoneda;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 public abstract class SistemaAmortizacion {
     private Cliente cliente;
@@ -28,8 +29,11 @@ public abstract class SistemaAmortizacion {
     protected void agregarCuota(Cuota cuota){
         cuotas.add(cuota);
     }
-    protected Cuota crearCuota(int periodoActual,double cuotaInteres,double deuda, double amortizacion){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected Cuota crearCuota(int periodoActual,double cuotaInteres,double deuda, double amortizacion)throws Exception{
+        Moneda cuotaInteresMoneda=FactoryMoneda.instanciar(monto.getTipo(), cuotaInteres);
+        Moneda amortizacionMoneda=FactoryMoneda.instanciar(monto.getTipo(), amortizacion);
+        Moneda deudaMoneda=FactoryMoneda.instanciar(monto.getTipo(), deuda);
+        return new Cuota(periodoActual,cuotaInteresMoneda,deudaMoneda,amortizacionMoneda);
     }
-    protected abstract void generarCuotas();
+    public abstract void generarCuotas()throws Exception;
 }

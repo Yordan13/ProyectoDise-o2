@@ -15,15 +15,17 @@ public class Americano extends SistemaAmortizacion{
         return monto.getMonto();
     }
     @Override
-    protected void generarCuotas() {
+    public void generarCuotas() throws Exception{
         double amortizacion=0;
         double cuotaInteres=calcularCuotaInteres();
         double deudaActual=monto.getMonto();
         for(int periodoActual=1;periodoActual<periodo;periodoActual++){
             Cuota cuotaActual=crearCuota(periodoActual, cuotaInteres, deudaActual, amortizacion);
+            agregarCuota(cuotaActual);
             deudaActual-=amortizacion;
         }
         amortizacion=calcularAmortizacion();
         Cuota cuotaActual=crearCuota(periodo, cuotaInteres, deudaActual, amortizacion);
+        agregarCuota(cuotaActual);
     }
 }

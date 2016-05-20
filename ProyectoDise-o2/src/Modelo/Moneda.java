@@ -25,4 +25,7 @@ public abstract class Moneda {
     public void setMonto(double cantidad){
         monto=cantidad;
     }
+    public String getTipo(){
+        return tipo;
+    }
 }

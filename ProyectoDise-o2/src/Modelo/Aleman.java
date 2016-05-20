@@ -17,7 +17,7 @@ public class Aleman extends SistemaAmortizacion{
     }
 
     @Override
-    protected void generarCuotas() {
+    public void generarCuotas() throws Exception{
         double amortizacion=calcularAmortizacion();
         double cuotaInteres=0;
         double deudaActual=monto.getMonto();
