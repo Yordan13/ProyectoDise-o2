@@ -10,7 +10,7 @@ public class FactoryCliente {
         Object[] parametros= new Object[]{nombre};
         Instanciador<Cliente> instanciador= new InstanciadorReflexion<>();
         Class[] tiposDedatos = instanciador.getTipoDatos(parametros);
-        String nombreClase= Datos.obtenerDatoString("cliente", claseCliente);
+        String nombreClase= Datos.obtenerDatoString("identificadores","cliente", claseCliente);
         return instanciador.crear(tiposDedatos, parametros, nombreClase);
     }
 }

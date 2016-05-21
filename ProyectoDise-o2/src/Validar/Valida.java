@@ -14,7 +14,7 @@ public class Valida {
     public static Boolean validaNombre(String nombre){
         return nombre.length()>0;
     }
-    public static Boolean validaIdentificador(String tipo, String llave){
-        return Datos.validarLlave(tipo, llave);
+    public static Boolean validaIdentificador(String identifacor,String tipo, String llave){
+        return Datos.validarLlave(identifacor,tipo, llave);
     }
 }

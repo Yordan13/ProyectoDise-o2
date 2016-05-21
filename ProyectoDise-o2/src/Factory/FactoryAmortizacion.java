@@ -14,7 +14,7 @@ public class FactoryAmortizacion {
         Object[] parametros= new Object[]{cliente,monto,periodo,fecha,tasaInteres,claseSistema};
         Instanciador<SistemaAmortizacion> instanciador= new InstanciadorReflexion<>();
         Class[] tiposDedatos = instanciador.getTipoDatos(parametros);
-        String nombreClase= Datos.obtenerDatoString("sistema", claseSistema);
+        String nombreClase= Datos.obtenerDatoString("identificadores","sistema", claseSistema);
         return instanciador.crear(tiposDedatos, parametros, nombreClase);
     }
 }

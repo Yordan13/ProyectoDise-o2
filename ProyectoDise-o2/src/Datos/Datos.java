@@ -17,16 +17,16 @@ public class Datos {
         Object objectoJson = parseador.parse(archivo);
         datos=(JSONObject)objectoJson;
     }
-    public static String obtenerDatoString(String tipo,String llave){
-        JSONObject informacion=(JSONObject) datos.get("identificadores");
+    public static String obtenerDatoString(String identificador,String tipo,String llave){
+        JSONObject informacion=(JSONObject) datos.get(identificador);
         informacion=(JSONObject) informacion.get(tipo);
         return (String)informacion.get(llave);
     }
     public static Double obtenerDatoDouble(String llave){
         return (Double) datos.get(llave);
     }
-    public static Boolean validarLlave(String tipo, String llave){
-        JSONObject informacion=(JSONObject) datos.get("identificadores");
+    public static Boolean validarLlave(String identificador,String tipo, String llave){
+        JSONObject informacion=(JSONObject) datos.get(identificador);
         informacion=(JSONObject) informacion.get(tipo);
         return informacion.containsKey(llave);
     }

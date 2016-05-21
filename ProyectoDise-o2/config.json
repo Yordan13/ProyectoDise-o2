@@ -13,6 +13,21 @@
 			"persona" : "Modelo.Persona"
 		}
 	},
+	"direcciones":{
+		"bancoCentral":{
+			"dolares":{
+				"url":"",
+				"indicador": 317,
+				"nombre": "Jason Moya",
+				"subnivel":"N"
+			},
+		},
+		"chucky":{
+			"direccion":"localhost",
+			"puerto": 8666
+		}
+	},
 	"montoMinimoSistema" : 0.0,
-	"tasaInteresMinimo" : 0.0
+	"tasaInteresMinimo" : 0.0,
+	"periodoMinimo" : 0
 }
