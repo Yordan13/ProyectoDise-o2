@@ -19,7 +19,8 @@
 				"url":"",
 				"indicador": 317,
 				"nombre": "Jason Moya",
-				"subnivel":"N"
+				"subnivel":"N",
+				"etiqueta":"NUM_VALOR"
 			},
 		},
 		"chucky":{
