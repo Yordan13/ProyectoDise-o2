@@ -1,10 +1,12 @@
 
 package Controlador;
 
+import Vistas.Vista;
+
 public class SistemaControlador extends AbstractControlador{
 
-    public SistemaControlador() {
-        super();
+    public SistemaControlador(Vista vista) {
+        super(vista);
     }
         
 }

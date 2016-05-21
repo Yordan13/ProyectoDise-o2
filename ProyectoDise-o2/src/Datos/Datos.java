@@ -25,6 +25,9 @@ public class Datos {
     public static Double obtenerDatoDouble(String llave){
         return (Double) datos.get(llave);
     }
+    public static Integer obtenerDatoInteger(String llave){
+        return (Integer) datos.get(llave);
+    }
     public static Boolean validarLlave(String identificador,String tipo, String llave){
         JSONObject informacion=(JSONObject) datos.get(identificador);
         informacion=(JSONObject) informacion.get(tipo);

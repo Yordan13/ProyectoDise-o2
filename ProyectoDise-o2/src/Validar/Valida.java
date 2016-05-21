@@ -14,7 +14,10 @@ public class Valida {
     public static Boolean validaNombre(String nombre){
         return nombre.length()>0;
     }
-    public static Boolean validaIdentificador(String identifacor,String tipo, String llave){
-        return Datos.validarLlave(identifacor,tipo, llave);
+    public static Boolean validaIdentificador(String identificador,String tipo, String llave){
+        return Datos.validarLlave(identificador,tipo, llave);
+    }
+    public static Boolean validaPeriodos(Integer periodo){
+        return periodo>Datos.obtenerDatoInteger("periodoMinimo");
     }
 }

@@ -8,13 +8,15 @@ import Factory.FactoryMoneda;
 import Modelo.Cliente;
 import Modelo.Moneda;
 import Modelo.SistemaAmortizacion;
+import Vistas.Vista;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class AbstractControlador {
-
-    public AbstractControlador() {
+    Vista vista;
+    public AbstractControlador(Vista vista) {
+        this.vista=vista;
         init();
     }
     private void init(){}
