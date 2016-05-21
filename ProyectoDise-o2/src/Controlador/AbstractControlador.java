@@ -23,11 +23,15 @@ public class AbstractControlador {
             Moneda moneda= FactoryMoneda.instanciar(dto.getTipoMoneda(), dto.getMonto(), 530.0);
             Cliente cliente = FactoryCliente.instanciar(dto.getNombreCliente(), "persona");
             SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), "17/8/9", dto.getInteres(), dto.getSistemaAmortizacion());
+            sistema.generarCuotas();
+            DtoSistema nuevoDto=sistema.getDTO();
+            actualizarBitacora(nuevoDto);
+            actualizarVista(nuevoDto);
         } catch (Exception ex) {
             return;
         }
         
     }
-    protected void actualizarVista(DtoSistema dto){}
+    private void actualizarVista(DtoSistema dto){}
     private void actualizarBitacora(DtoSistema dto){}
 }

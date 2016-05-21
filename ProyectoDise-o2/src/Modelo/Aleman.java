@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Aleman extends SistemaAmortizacion{
 
-    public Aleman(Cliente cliente, Moneda monto, Integer periodo,String fecha,Double tasaInteres) {
-        super(cliente, monto, periodo,fecha,tasaInteres);
+    public Aleman(Cliente cliente, Moneda monto, Integer periodo,String fecha,Double tasaInteres,String tipoSistema) {
+        super(cliente, monto, periodo,fecha,tasaInteres,tipoSistema);
     }
     protected double calcularAmortizacion() {
         return monto.getMonto()/periodo;

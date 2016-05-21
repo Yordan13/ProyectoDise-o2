@@ -1,5 +1,5 @@
 
-package Validacion;
+package Validar;
 
 import Datos.Datos;
 

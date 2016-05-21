@@ -1,5 +1,8 @@
 package DTOSistemaAmortizacion;
 
+import Modelo.Cuota;
+import java.util.ArrayList;
+
 
 public class DtoSistema {
     private double monto;
@@ -8,6 +11,7 @@ public class DtoSistema {
     private String tipoMoneda;
     private String SistemaAmortizacion;
     private String nombreCliente;
+    private ArrayList<Cuota> cuotas;
 
     public DtoSistema(double monto, double interes, int periodo, String tipoMoneda, String SistemaAmortizacion, String nombreCliente) {
         this.monto = monto;
@@ -16,6 +20,15 @@ public class DtoSistema {
         this.tipoMoneda = tipoMoneda;
         this.SistemaAmortizacion = SistemaAmortizacion;
         this.nombreCliente = nombreCliente;
+    }
+    public DtoSistema(double monto, double interes, int periodo, String tipoMoneda, String SistemaAmortizacion, String nombreCliente, ArrayList<Cuota> cuotas) {
+        this.monto = monto;
+        this.interes = interes;
+        this.periodo = periodo;
+        this.tipoMoneda = tipoMoneda;
+        this.SistemaAmortizacion = SistemaAmortizacion;
+        this.nombreCliente = nombreCliente;
+        this.cuotas=cuotas;
     }
 
     public double getMonto() {
