@@ -5,19 +5,39 @@
  */
 package Vistas;
 
+import Controlador.AbstractControlador;
+import DTOSistemaAmortizacion.DtoSistema;
+import Validar.Valida;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jjime
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame implements Vista{
 
     /**
      * Creates new form GUI
      */
+    private AbstractControlador controlador;
     public GUI() {
         initComponents();
+        esconderSalida();
+        resize(700, 488);
+        
     }
-
+    private void esconderEntrada(){
+        panelEntrada.setVisible(false);
+        panelSalida.setVisible(true);
+    }
+    private void esconderSalida(){
+        panelEntrada.setVisible(true);
+        panelSalida.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +47,342 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelEntrada = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtPeriodo = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
+        txtInteres = new javax.swing.JTextField();
+        cmbSistemas = new javax.swing.JComboBox<>();
+        cmbMonedas = new javax.swing.JComboBox<>();
+        btnGenerar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        panelSalida = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistemas de Amortización");
+
+        panelEntrada.setName("panelEntrada"); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel2.setText("Monto:");
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel3.setText("Periodo:");
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel4.setText("Interes:");
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel5.setText("Sistema de amortización:");
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel6.setText("Tipo de moneda:");
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel7.setText("ENTRDA DE DATOS");
+
+        txtNombre.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtNombre.setName("txtNombre"); // NOI18N
+
+        txtPeriodo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtPeriodo.setName("txtPeriodo"); // NOI18N
+
+        txtMonto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtMonto.setName("txtMonto"); // NOI18N
+
+        txtInteres.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtInteres.setName("txtInteres"); // NOI18N
+
+        cmbSistemas.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbSistemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aleman", "Frances", "Americano" }));
+        cmbSistemas.setName("cmbSistemas"); // NOI18N
+
+        cmbMonedas.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cmbMonedas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolares", "Colones" }));
+        cmbMonedas.setName("cmbMoneda"); // NOI18N
+
+        btnGenerar.setText("Generar");
+        btnGenerar.setName("btnGenerar"); // NOI18N
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setText("Salir");
+        btnSalir.setName("btnSalir"); // NOI18N
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelEntradaLayout = new javax.swing.GroupLayout(panelEntrada);
+        panelEntrada.setLayout(panelEntradaLayout);
+        panelEntradaLayout.setHorizontalGroup(
+            panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEntradaLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEntradaLayout.createSequentialGroup()
+                .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelEntradaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerar)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnSalir))
+                    .addGroup(panelEntradaLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbSistemas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(40, 40, 40))
+        );
+        panelEntradaLayout.setVerticalGroup(
+            panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEntradaLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelEntradaLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(39, 39, 39)
+                        .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4))
+                    .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cmbSistemas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(cmbMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerar)
+                    .addComponent(btnSalir))
+                .addContainerGap())
+        );
+
+        panelSalida.setEnabled(false);
+        panelSalida.setFocusable(false);
+        panelSalida.setName("panelSalida"); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel8.setText("SALIDAD DE DATOS");
+
+        btnVolver.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setToolTipText("");
+        btnVolver.setName("btnVolver"); // NOI18N
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
+        textArea.setEditable(false);
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
+
+        javax.swing.GroupLayout panelSalidaLayout = new javax.swing.GroupLayout(panelSalida);
+        panelSalida.setLayout(panelSalidaLayout);
+        panelSalidaLayout.setHorizontalGroup(
+            panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalidaLayout.createSequentialGroup()
+                .addGroup(panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSalidaLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jLabel8))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSalidaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnVolver)
+                .addGap(18, 18, 18))
+        );
+        panelSalidaLayout.setVerticalGroup(
+            panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalidaLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel8)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVolver)
+                .addGap(16, 16, 16))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(panelEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 72, Short.MAX_VALUE))
+                    .addComponent(panelSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        panelEntrada.getAccessibleContext().setAccessibleName("panelEntrada");
+        panelSalida.getAccessibleContext().setAccessibleName("panelSalida");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        esconderSalida();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        try {
+            String nombre = obtenerString( "Nombre ingresado invalido",txtNombre.getText(),
+                    Valida.class.getMethod("validaNombre",String.class));
+            Double monto = obtenerDouble( "Monto insuficiente",txtMonto.getText(),
+                        Valida.class.getMethod("validaMonto", Double.class));
+            Integer periodo=obtenerInt("Periodo ingresado invalido",txtPeriodo.getText(),
+                        Valida.class.getMethod("validaPeriodos", Integer.class));
+            Double interes = obtenerDouble("Cantidad de interes insuficiente",txtInteres.getText(),
+                        Valida.class.getMethod("validaInteres", Double.class));
+            interes/=100;
+            String sistema=validarllave("Sistema de amortizacion inexistente",((String)cmbSistemas.getSelectedItem()).toLowerCase(),
+                        Valida.class.getMethod("validaIdentificador", String.class,String.class,String.class),"sistema");
+            String moneda=validarllave("Tipo de moneda inexistente",((String)cmbMonedas.getSelectedItem()).toLowerCase(),
+                        Valida.class.getMethod("validaIdentificador", String.class,String.class,String.class),"moneda");
+            DtoSistema dto = new DtoSistema(monto, interes, periodo, moneda, sistema, nombre);
+            controlador.crearSistemaAhorro(dto);
+        } catch (Exception error) {
+            mostrarMensaje(error.getMessage());
+        }
+    }//GEN-LAST:event_btnGenerarActionPerformed
+    private String validarllave(String mensajeError,String dato,Method validar,String llave) throws Exception{
+            try{
+                if ((Boolean)validar.invoke(null ,new Object[]{"identificadores",llave,dato})){
+                        return dato;
+                }                       
+                throw new Exception(mensajeError);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return null;
+    }
+    
+    private int obtenerInt(String mensajeError,String dato,Method validar) throws Exception{
+        Integer resultado=0;
+            try{
+                resultado= Integer.parseInt(dato);
+                if ((Boolean)validar.invoke(null,new Object[]{resultado})){
+                    return resultado;
+                }
+                throw new Exception(mensajeError);
+            }
+            catch(NumberFormatException error){
+                throw new NumberFormatException("Formato del numero incorrecto: "+dato+".");
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        return resultado;
+    } 
+    
+    private String obtenerString(String dato,String mensajeError,Method validar) throws Exception{
+            try{
+                if ((Boolean)validar.invoke(null,new Object[]{dato})){
+                    return dato;
+                } 
+                throw new Exception(mensajeError);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        return dato;
+    }
+    private Double obtenerDouble(String mensajeError,String dato,Method validar) throws Exception{
+        Double resultado=0.0;
+            try{
+                resultado= Double.parseDouble(dato);
+                if ((Boolean)validar.invoke(null,new Object[]{resultado})){
+                    return resultado;
+                }
+                throw new Exception(mensajeError);
+            }
+            catch(NumberFormatException error){
+                throw new NumberFormatException("Formato del numero incorrecto "+dato+".");
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        return resultado;
+    }
     /**
      * @param args the command line arguments
      */
@@ -79,5 +419,41 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JComboBox<String> cmbMonedas;
+    private javax.swing.JComboBox<String> cmbSistemas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelEntrada;
+    private javax.swing.JPanel panelSalida;
+    private javax.swing.JTextArea textArea;
+    private javax.swing.JTextField txtInteres;
+    private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPeriodo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, "Error algo ha ocurrido", JOptionPane.ERROR_MESSAGE);
+    }
+
+    @Override
+    public void mostrarInformacion(DtoSistema dto) {
+        esconderEntrada();
+        textArea.setText(dto.toString());
+    }
+
+    public void setControlador(AbstractControlador controlador) {
+        this.controlador = controlador;
+    }
 }

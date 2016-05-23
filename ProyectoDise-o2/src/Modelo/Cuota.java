@@ -13,5 +13,21 @@ public class Cuota {
         this.deuda = deuda;
         this.amortizacion = amortizacion;
     }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public Moneda getCuotaInteres() {
+        return cuotaInteres;
+    }
+
+    public Moneda getDeuda() {
+        return deuda;
+    }
+
+    public Moneda getAmortizacion() {
+        return amortizacion;
+    }
     
 }

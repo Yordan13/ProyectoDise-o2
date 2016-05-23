@@ -4,6 +4,8 @@ package Modelo;
 import DTOSistemaAmortizacion.DtoSistema;
 import Factory.FactoryMoneda;
 import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public abstract class SistemaAmortizacion {
@@ -41,6 +43,39 @@ public abstract class SistemaAmortizacion {
     }
     public abstract void generarCuotas()throws Exception;
     public DtoSistema getDTO(){
-        return new DtoSistema(monto.getMonto(), tasaInteres, periodo,monto.getTipo(),tipoSistema , fecha, cuotas);
+        return new DtoSistema(monto.getMonto(), tasaInteres, periodo,monto.getTipo(),tipoSistema , fecha, obtenerStringCuotas(),monto.getTipo(),fecha);
+    }
+    private String obtenerStringCuotas(){
+        String formatoLineas="%-15s%-15s%-15s%-15s%-20s\n";
+        String formatoDecimales="%.2f";
+        Formatter formateador=generarFormateador();
+        formateador.format(formatoLineas, "Periodo", "Deuda inicial", "Interes(SK)","Amortización(vK)","Cuota(cK)");
+        Double totalInteres=0.0;
+        Double totalAmortizacion=0.0;
+        Double totalCuotas=0.0;
+        Double totalCuota=0.0;
+        for(Cuota cuota:cuotas){
+            totalCuota=cuota.getCuotaInteres().getMonto()+cuota.getAmortizacion().getMonto();
+            totalCuotas+=totalCuota;
+            totalInteres+=cuota.getCuotaInteres().getMonto();
+            totalAmortizacion+=cuota.getAmortizacion().getMonto();
+            formateador.format(formatoLineas, cuota.getPeriodo(), 
+                formatoDecimales(formatoDecimales,cuota.getDeuda().getMonto()),
+                formatoDecimales(formatoDecimales,cuota.getCuotaInteres().getMonto()),
+                formatoDecimales(formatoDecimales,cuota.getAmortizacion().getMonto()),
+                formatoDecimales(formatoDecimales,totalCuota));
+          }
+        formateador.format(formatoLineas,"Total","",formatoDecimales(formatoDecimales,totalInteres),
+                formatoDecimales(formatoDecimales,totalAmortizacion),
+                formatoDecimales(formatoDecimales,totalCuotas));
+        return formateador.toString();
+    }
+    private Formatter generarFormateador(){
+        StringBuilder lineas= new StringBuilder();
+        Formatter formateador = new Formatter(lineas, Locale.US);
+        return formateador;
+    }
+    private String formatoDecimales(String formato,Double numero){
+        return String.format(formato,numero);
     }
 }
