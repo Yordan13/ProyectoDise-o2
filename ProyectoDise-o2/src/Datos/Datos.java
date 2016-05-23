@@ -27,8 +27,9 @@ public class Datos {
     public static Double obtenerDatoDouble(String llave){
         return (Double) datos.get(llave);
     }
-    public static Integer obtenerDatoInteger(String llave){
-        return (Integer) datos.get(llave);
+    public static Integer obtenerDatoInteger(String llave) {
+        Long r = (Long) datos.get(llave);
+        return r.intValue();
     }
     
     public static ArrayList<String> obtenerDatosEnLista(String identificador, String tipo, String llave) {
