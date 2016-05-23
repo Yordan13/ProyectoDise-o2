@@ -14,14 +14,10 @@
 		}
 	},
 	"direcciones":{
-		"bancoCentral":{
-			"dolares":{
-				"url":"",
-				"indicador": 317,
-				"nombre": "Jason Moya",
-				"subnivel":"N",
-				"etiqueta":"NUM_VALOR"
-			},
+		"BancoCentral":{
+			"url":"http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsIndicadoresEconomicos.asmx/ObtenerIndicadoresEconomicos",
+			"formatoParametros":"tcIndicador=%s&tcFechaInicio=%s&tcFechaFinal=%s&tcNombre=%s&tnSubNiveles=%s",
+			"tipoCambio":["317", "Jasson Moya","N", "NUM_VALOR"]
 		},
 		"chucky":{
 			"direccion":"localhost",

@@ -3,6 +3,8 @@ package Datos;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -28,6 +30,16 @@ public class Datos {
     public static Integer obtenerDatoInteger(String llave){
         return (Integer) datos.get(llave);
     }
+    
+    public static ArrayList<String> obtenerDatosEnLista(String identificador, String tipo, String llave) {
+        JSONObject informacion = (JSONObject) datos.get(identificador);
+        informacion = (JSONObject) informacion.get(tipo);
+        JSONArray ArrayInformacion = (JSONArray) informacion.get(llave);
+        ArrayList<String> listaDatos = Util.JSON_Util.jsonTOList(ArrayInformacion);
+        return listaDatos;
+    }
+
+    
     public static Boolean validarLlave(String identificador,String tipo, String llave){
         JSONObject informacion=(JSONObject) datos.get(identificador);
         informacion=(JSONObject) informacion.get(tipo);

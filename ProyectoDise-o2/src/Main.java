@@ -1,3 +1,4 @@
+import Adaptador.WebServiceBCCR;
 import Modelo.Dolar;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,13 +7,26 @@ import java.lang.reflect.Constructor;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.parser.ParseException;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Dolar.class.getName());
-        double p=938383;
-        Dolar d =(Dolar)instance("Modelo.Dolar", new Object[]{p,p,"dolares"});
-        //socket();
+        try {
+            //        System.out.println(Dolar.class.getName());
+//        double p=938383;
+//        Dolar d =(Dolar)instance("Modelo.Dolar", new Object[]{p,p,"dolares"});
+//socket();
+
+        Datos.Datos.inicializar();
+        Adaptador.AdapterWebService prueba = new WebServiceBCCR("tipoCambio");
+        System.out.println(prueba.consumirWebService());
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     static Object instance (String type,Object [] parametros ){
