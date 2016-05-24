@@ -1,0 +1,5 @@
+﻿  cppLibreriaBitacora.cpp
+  AssemblyInfo.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+     Creando biblioteca ..\..\..\..\GitHub\ProyectoDise-o2\ProyectoDise-o2\cppLibreriaBitacora.lib y objeto ..\..\..\..\GitHub\ProyectoDise-o2\ProyectoDise-o2\cppLibreriaBitacora.exp
+  cppLibreriaBitacora.vcxproj -> C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\cppLibreriaBitacora\..\..\..\..\GitHub\ProyectoDise-o2\ProyectoDise-o2\cppLibreriaBitacora.dll
+  cppLibreriaBitacora.vcxproj -> ..\..\..\..\GitHub\ProyectoDise-o2\ProyectoDise-o2\cppLibreriaBitacora.pdb (Partial PDB)

@@ -348,7 +348,7 @@ public class GUI extends javax.swing.JFrame implements Vista{
         return resultado;
     } 
     
-    private String obtenerString(String dato,String mensajeError,Method validar) throws Exception{
+    private String obtenerString(String mensajeError,String dato,Method validar) throws Exception{
             try{
                 if ((Boolean)validar.invoke(null,new Object[]{dato})){
                     return dato;

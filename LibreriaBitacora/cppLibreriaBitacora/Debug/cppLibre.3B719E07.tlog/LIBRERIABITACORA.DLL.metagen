@@ -1,0 +1,34 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly LibreriaBitacora, Version=1.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class LibreriaBitacora.Bitacora: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    escribir(String, String, String, String, String, String): PrivateScope, Public, Static, HideBySig
+Class LibreriaBitacora.EscritorBitacora: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Methods:
+    escribir(ProductoAhorroDTO): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class LibreriaBitacora.EscritorCSV: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :LibreriaBitacora.EscritorBitacora
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    escribir(ProductoAhorroDTO): PrivateScope, Public, Virtual, HideBySig
+Class LibreriaBitacora.EscritorXML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :LibreriaBitacora.EscritorBitacora
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    escribir(ProductoAhorroDTO): PrivateScope, Public, Virtual, HideBySig
+Class LibreriaBitacora.ProductoAhorroDTO: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Double, Double, Int32, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double, Int32, System.String, System.String, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getMonto(): PrivateScope, Public, HideBySig
+    getInteres(): PrivateScope, Public, HideBySig
+    getPeriodo(): PrivateScope, Public, HideBySig
+    getTipoMoneda(): PrivateScope, Public, HideBySig
+    getSistemaAmortizacion(): PrivateScope, Public, HideBySig
+    getNombreCliente(): PrivateScope, Public, HideBySig

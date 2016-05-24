@@ -1,0 +1,9 @@
+C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\bin\Debug\LibreriaBitacora.dll
+C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\bin\Debug\LibreriaBitacora.pdb
+C:\Program Files\Java\jdk1.8.0_73\bin\LibreriaBitacora.dll
+C:\Users\jjime\documents\GitHub\ProyectoDise-o2\LibreriaBitacora.dll
+C:\Users\jjime\documents\GitHub\ProyectoDise-o2\LibreriaBitacora.pdb
+C:\Users\jjime\documents\GitHub\ProyectoDise-o2\ProyectoDise-o2\src\Controlador\LibreriaBitacora.dll
+C:\Users\jjime\documents\GitHub\ProyectoDise-o2\ProyectoDise-o2\src\Controlador\LibreriaBitacora.pdb
+C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.dll
+C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.pdb

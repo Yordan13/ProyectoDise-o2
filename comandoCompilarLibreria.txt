@@ -1,0 +1,1 @@
+.\javah -classpath "C:\Users\jjime\Documents\GitHub\ProyectoDise-o2\ProyectoDise-o2\src" -d "C:\Users\jjime\Documents\Visual Studio 2015\Projects\LibreriaBitacora\cppLibreriaBitacora" Controlador.AbstractControlador

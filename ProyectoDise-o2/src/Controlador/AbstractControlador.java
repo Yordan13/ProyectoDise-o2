@@ -38,7 +38,7 @@ public class AbstractControlador {
             SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), "17/8/9", dto.getInteres(), dto.getSistemaAmortizacion());
             sistema.generarCuotas();
             DtoSistema nuevoDto=sistema.getDTO();
-            actualizarBitacora(nuevoDto);
+            actualizarBitacora(dto);
             actualizarVista(nuevoDto);
         } catch (Exception error) {
             vista.mostrarMensaje(error.getMessage());

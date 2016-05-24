@@ -1,4 +1,4 @@
-
+ 
 package Modelo;
 
 import DTOSistemaAmortizacion.DtoSistema;
@@ -43,7 +43,7 @@ public abstract class SistemaAmortizacion {
     }
     public abstract void generarCuotas()throws Exception;
     public DtoSistema getDTO(){
-        return new DtoSistema(monto.getMonto(), tasaInteres, periodo,monto.getTipo(),tipoSistema , fecha, obtenerStringCuotas(),monto.getTipo(),fecha);
+        return new DtoSistema(monto.getMonto(), tasaInteres, periodo,monto.getTipo(),tipoSistema,cliente.getNombre() , obtenerStringCuotas(), String.valueOf(monto.getTipoCambio()),fecha);
     }
     private String obtenerStringCuotas(){
         String formatoLineas="%-15s%-15s%-15s%-15s%-20s\n";
