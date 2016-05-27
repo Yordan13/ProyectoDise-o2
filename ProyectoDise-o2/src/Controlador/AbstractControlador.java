@@ -37,11 +37,9 @@ public class AbstractControlador {
     }
     public void crearSistemaAhorro(DtoSistema dto){
         try {
-            AdapterWebService tipoCambioServidor = new WebServiceBCCR("tipoCambio");
-            Moneda moneda= FactoryMoneda.instanciar(dto.getTipoMoneda(), dto.getMonto(), Double.parseDouble(tipoCambioServidor.consumirWebService().get(0)));
+            Moneda moneda= FactoryMoneda.instanciar(dto.getTipoMoneda(), dto.getMonto(), Double.parseDouble(obtenerTipoCambio()));
             Cliente cliente = FactoryCliente.instanciar(dto.getNombreCliente(), "persona");
-            AdapterSocket fechaServidor = new PythonSocket(Datos.obtenerDatoString("direcciones", "chucky", "direccion"), Datos.obtenerDatoInteger("direcciones", "chucky", "puerto"));
-            SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), fechaServidor.obtenerRespuestaSocket(), dto.getInteres(), dto.getSistemaAmortizacion());
+            SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), obtenerFechaServidor(), dto.getInteres(), dto.getSistemaAmortizacion());
             sistema.generarCuotas();
             DtoSistema nuevoDto=sistema.getDTO();
             actualizarBitacora(dto);
@@ -50,6 +48,14 @@ public class AbstractControlador {
             vista.mostrarMensaje(error.getMessage());
         }
         
+    }
+    private String obtenerFechaServidor() {
+        AdapterSocket fechaServidor = new PythonSocket(Datos.obtenerDatoString("direcciones", "chucky", "direccion"), Datos.obtenerDatoInteger("direcciones", "chucky", "puerto"));
+        return fechaServidor.obtenerRespuestaSocket();
+    }
+    private String obtenerTipoCambio() {
+        AdapterWebService tipoCambioServidor = new WebServiceBCCR("tipoCambio");
+        return tipoCambioServidor.consumirWebService().get(0);
     }
     private void actualizarVista(DtoSistema dto){
         vista.mostrarInformacion(dto);
