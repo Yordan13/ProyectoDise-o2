@@ -84,7 +84,7 @@ public class GUI extends javax.swing.JFrame implements Vista{
         jLabel3.setText("Periodo:");
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel4.setText("Interes:");
+        jLabel4.setText("Interés:");
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Sistema de amortización:");
@@ -93,7 +93,7 @@ public class GUI extends javax.swing.JFrame implements Vista{
         jLabel6.setText("Tipo de moneda:");
 
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel7.setText("ENTRDA DE DATOS");
+        jLabel7.setText("Sistema de Amortización");
 
         txtNombre.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtNombre.setName("txtNombre"); // NOI18N
@@ -135,10 +135,6 @@ public class GUI extends javax.swing.JFrame implements Vista{
         panelEntrada.setLayout(panelEntradaLayout);
         panelEntradaLayout.setHorizontalGroup(
             panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEntradaLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEntradaLayout.createSequentialGroup()
                 .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelEntradaLayout.createSequentialGroup()
@@ -164,15 +160,19 @@ public class GUI extends javax.swing.JFrame implements Vista{
                             .addComponent(cmbSistemas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
+            .addGroup(panelEntradaLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEntradaLayout.setVerticalGroup(
             panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEntradaLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel7)
+                .addGap(33, 33, 33)
                 .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelEntradaLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(39, 39, 39)
                         .addGroup(panelEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
