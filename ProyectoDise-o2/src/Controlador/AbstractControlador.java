@@ -1,6 +1,10 @@
 
 package Controlador;
 
+import AdaptadorSocket.AdapterSocket;
+import AdaptadorSocket.PythonSocket;
+import AdaptadorWebService.AdapterWebService;
+import AdaptadorWebService.WebServiceBCCR;
 import DTOSistemaAmortizacion.DtoSistema;
 import Datos.Datos;
 import Factory.FactoryAmortizacion;
@@ -33,9 +37,11 @@ public class AbstractControlador {
     }
     public void crearSistemaAhorro(DtoSistema dto){
         try {
-            Moneda moneda= FactoryMoneda.instanciar(dto.getTipoMoneda(), dto.getMonto(), 530.0);
+            AdapterWebService tipoCambioServidor = new WebServiceBCCR("tipoCambio");
+            Moneda moneda= FactoryMoneda.instanciar(dto.getTipoMoneda(), dto.getMonto(), Double.parseDouble(tipoCambioServidor.consumirWebService().get(0)));
             Cliente cliente = FactoryCliente.instanciar(dto.getNombreCliente(), "persona");
-            SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), "17/8/9", dto.getInteres(), dto.getSistemaAmortizacion());
+            AdapterSocket fechaServidor = new PythonSocket(Datos.obtenerDatoString("direcciones", "chucky", "direccion"), Datos.obtenerDatoInteger("direcciones", "chucky", "puerto"));
+            SistemaAmortizacion sistema = FactoryAmortizacion.instanciar(cliente, moneda, dto.getPeriodo(), fechaServidor.obtenerRespuestaSocket(), dto.getInteres(), dto.getSistemaAmortizacion());
             sistema.generarCuotas();
             DtoSistema nuevoDto=sistema.getDTO();
             actualizarBitacora(dto);

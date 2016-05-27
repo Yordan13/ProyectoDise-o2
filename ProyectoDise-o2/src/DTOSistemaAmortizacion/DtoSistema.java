@@ -35,11 +35,12 @@ public class DtoSistema {
         this.fecha=fecha;
     }
     public String toString(){
-        String resultado="Tipo de cambio compra BCCR: "+tipoCambio+"/n"+
+        String resultado="Tipo de cambio compra BCCR: "+tipoCambio+"\n"+
                 "Datos de la consulta:\n"+
                 "Cliente: "+nombreCliente+"\n"+
-                "Monto del préstamo otorgado: "+String.format("%.2f", monto)+" "+tipoCambio+"\n"+
+                "Monto del préstamo otorgado: "+String.format("%.2f", monto)+" de "+tipoMoneda+"\n"+
                 "Plazo del préstamo: "+periodo+" años\n"+
+                "Interés anual: "+interes * 100+" %\n"+ 
                 "Sistema de amortización: "+SistemaAmortizacion+"\n\n"+
                 "Tabla de Amortización\n\n"+
                 cuotas+"\n\n"+

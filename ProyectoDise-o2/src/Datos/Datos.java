@@ -31,6 +31,12 @@ public class Datos {
         Long r = (Long) datos.get(llave);
         return r.intValue();
     }
+    public static Integer obtenerDatoInteger(String identificador,String tipo,String llave) {
+        JSONObject informacion = (JSONObject) datos.get(identificador);
+        informacion = (JSONObject) informacion.get(tipo);
+        Long resultado = (Long) informacion.get(llave);
+        return resultado.intValue();
+    }
     
     public static ArrayList<String> obtenerDatosEnLista(String identificador, String tipo, String llave) {
         JSONObject informacion = (JSONObject) datos.get(identificador);
