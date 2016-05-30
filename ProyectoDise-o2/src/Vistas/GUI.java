@@ -7,7 +7,7 @@ package Vistas;
 
 import Controlador.AbstractControlador;
 import DTOSistemaAmortizacion.DtoSistema;
-import Validar.Valida;
+import Util.Valida;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;

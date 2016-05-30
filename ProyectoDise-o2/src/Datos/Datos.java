@@ -42,7 +42,7 @@ public class Datos {
         JSONObject informacion = (JSONObject) datos.get(identificador);
         informacion = (JSONObject) informacion.get(tipo);
         JSONArray ArrayInformacion = (JSONArray) informacion.get(llave);
-        ArrayList<String> listaDatos = Util.JSON_Util.jsonTOList(ArrayInformacion);
+        ArrayList<String> listaDatos = Util.JSON_Util.jsonToList(ArrayInformacion);
         return listaDatos;
     }
 

@@ -3,7 +3,7 @@ package Vistas;
 
 import Controlador.AbstractControlador;
 import DTOSistemaAmortizacion.DtoSistema;
-import Validar.Valida;
+import Util.Valida;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
@@ -34,18 +34,18 @@ public class Consola implements Vista{
     public void crearSistema(){
         try {
             while (true){
-                mostrarMensaje("BIENVENIDO AL GENERADOR DE SISTEMAS DE AMORTIZACION\n"+
+                mostrarMensaje("BIENVENIDO AL GENERADOR DE SISTEMAS DE AMORTIZACIÓN\n"+
                         "INGRESE LOS DATOS SOLICITADOS");
-                String nombre = obtenerString("Digite su nombre:", "Nombre ingresado invalido", 
+                String nombre = obtenerString("Digite su nombre:", "Nombre ingresado inválido", 
                         Valida.class.getMethod("validaNombre",String.class));
-                Double monto = obtenerDouble("Digite el monto del sistema de amortizacion:", "Monto insuficiente",
+                Double monto = obtenerDouble("Digite el monto del sistema de amortización:", "Monto insuficiente",
                         Valida.class.getMethod("validaMonto", Double.class));
-                Integer periodo=obtenerInt("Digite el total de periodos:", "Monto ingresado invalido",
+                Integer periodo=obtenerInt("Digite el total de periodos:", "Monto ingresado inválido",
                         Valida.class.getMethod("validaPeriodos", Integer.class));
-                Double interes = obtenerDouble("Digite la tasa de interes del sistema de amortizacion:", "Cantidad insuficiente",
+                Double interes = obtenerDouble("Digite la tasa de interés del sistema de amortización:", "Cantidad insuficiente",
                         Valida.class.getMethod("validaInteres", Double.class));
                 interes/=100;
-                int posicionSistema=obtenerInt("Seleccione el tipo de sistema:","Sistema de amortizacion inexistente",
+                int posicionSistema=obtenerInt("Seleccione el tipo de sistema:","Sistema de amortización inexistente",
                         Valida.class.getMethod("validaIdentificador", String.class,String.class,String.class),"sistema", sistemas);
                 String sistema= sistemas[posicionSistema-1].toLowerCase();
                 int posicionMoneda=obtenerInt("Seleccione el tipo de Moneda:","Tipo de moneda inexistente",
@@ -71,7 +71,7 @@ public class Consola implements Vista{
                 mostrarMensaje(mensajeError);
             }
             catch(NumberFormatException error){
-                mostrarMensaje("Formato de numero ingresado invalido");
+                mostrarMensaje("Formato de número ingresado inválido");
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
@@ -95,7 +95,7 @@ public class Consola implements Vista{
                 mostrarMensaje(mensajeError);
             }
             catch(NumberFormatException error){
-                mostrarMensaje("Formato de numero ingresado invalido");
+                mostrarMensaje("Formato de número ingresado inválido");
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
@@ -126,7 +126,7 @@ public class Consola implements Vista{
                 }
             }
             catch(NumberFormatException error){
-                mostrarMensaje("Formato de numero ingresado invalido");
+                mostrarMensaje("Formato de numero ingresado inválido");
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Consola.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {

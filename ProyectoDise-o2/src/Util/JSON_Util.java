@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 
 public class JSON_Util {
 
-    public static ArrayList<String> jsonTOList(JSONArray pJson) {
+    public static ArrayList<String> jsonToList(JSONArray pJson) {
         Iterator<String> iterator = pJson.iterator();
         ArrayList<String> finalList = new ArrayList<>();
         while (iterator.hasNext()) {

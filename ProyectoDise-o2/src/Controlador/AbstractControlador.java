@@ -22,6 +22,8 @@ import org.json.simple.parser.ParseException;
 
 public class AbstractControlador {
     Vista vista;
+    AdapterSocket fechaServidor;
+    AdapterWebService tipoCambioServidor;
     public AbstractControlador(Vista vista) {
         this.vista=vista;
         init();
@@ -50,11 +52,11 @@ public class AbstractControlador {
         
     }
     private String obtenerFechaServidor() {
-        AdapterSocket fechaServidor = new PythonSocket(Datos.obtenerDatoString("direcciones", "chucky", "direccion"), Datos.obtenerDatoInteger("direcciones", "chucky", "puerto"));
+        fechaServidor = new PythonSocket(Datos.obtenerDatoString("direcciones", "chucky", "direccion"), Datos.obtenerDatoInteger("direcciones", "chucky", "puerto"));
         return fechaServidor.obtenerRespuestaSocket();
     }
     private String obtenerTipoCambio() {
-        AdapterWebService tipoCambioServidor = new WebServiceBCCR("tipoCambio");
+        tipoCambioServidor = new WebServiceBCCR("tipoCambio");
         return tipoCambioServidor.consumirWebService().get(0);
     }
     private void actualizarVista(DtoSistema dto){
