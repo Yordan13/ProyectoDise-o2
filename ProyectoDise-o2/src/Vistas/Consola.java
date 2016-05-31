@@ -166,7 +166,7 @@ public class Consola implements Vista{
     }
     private String leerDato(){
         Scanner lector= new Scanner(System.in);
-        String dato=lector.next();
+        String dato=lector.nextLine();
         return dato;
     }
     

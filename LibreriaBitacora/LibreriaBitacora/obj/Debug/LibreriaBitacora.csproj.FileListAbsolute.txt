@@ -7,3 +7,6 @@ C:\Users\jjime\documents\GitHub\ProyectoDise-o2\ProyectoDise-o2\src\Controlador\
 C:\Users\jjime\documents\GitHub\ProyectoDise-o2\ProyectoDise-o2\src\Controlador\LibreriaBitacora.pdb
 C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.dll
 C:\Users\jjime\documents\visual studio 2015\Projects\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.pdb
+C:\Users\jjime\Documents\GitHub\ProyectoDise-o2\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.csprojResolveAssemblyReference.cache
+C:\Users\jjime\Documents\GitHub\ProyectoDise-o2\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.dll
+C:\Users\jjime\Documents\GitHub\ProyectoDise-o2\LibreriaBitacora\LibreriaBitacora\obj\Debug\LibreriaBitacora.pdb

@@ -11,7 +11,12 @@ String^ convertir(const char *caracteres) {
 	int largo = (int)strlen(caracteres);
 	array<unsigned char>^ texto = gcnew array<unsigned char>(largo);
 	for (int contador = 0; contador < largo; contador++) {
-		texto[contador] = caracteres[contador];
+		if (caracteres[contador] == '.') {
+			texto[contador] = ',';
+		}
+		else {
+			texto[contador] = caracteres[contador];
+		}
 	}
 	return Encoding::UTF8->GetString(texto);
 }
