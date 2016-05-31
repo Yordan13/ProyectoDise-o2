@@ -297,7 +297,7 @@ public class GUI extends javax.swing.JFrame implements Vista{
                         Valida.class.getMethod("validaMonto", Double.class));
             Integer periodo=obtenerInt("Periodo ingresado invalido",txtPeriodo.getText(),
                         Valida.class.getMethod("validaPeriodos", Integer.class));
-            Double interes = obtenerDouble("Cantidad de interes insuficiente",txtInteres.getText(),
+            Double interes = obtenerDouble("Cantidad de interes erronea",txtInteres.getText(),
                         Valida.class.getMethod("validaInteres", Double.class));
             interes/=100;
             String sistema=validarllave("Sistema de amortizacion inexistente",((String)cmbSistemas.getSelectedItem()).toLowerCase(),

@@ -9,7 +9,7 @@ public class Valida {
         return monto>Datos.obtenerDatoDouble("montoMinimoSistema");
     }
     public static Boolean validaInteres(Double tasaInteres){
-        return tasaInteres>Datos.obtenerDatoDouble("tasaInteresMinimo");
+        return tasaInteres>Datos.obtenerDatoDouble("tasaInteresMinimo") & tasaInteres <100;
     }
     public static Boolean validaNombre(String nombre){
         return nombre.length()>0;

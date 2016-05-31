@@ -42,7 +42,7 @@ public class Consola implements Vista{
                         Valida.class.getMethod("validaMonto", Double.class));
                 Integer periodo=obtenerInt("Digite el total de periodos:", "Monto ingresado inválido",
                         Valida.class.getMethod("validaPeriodos", Integer.class));
-                Double interes = obtenerDouble("Digite la tasa de interés del sistema de amortización:", "Cantidad insuficiente",
+                Double interes = obtenerDouble("Digite la tasa de interés del sistema de amortización:", "Cantidad ingresada erronea.",
                         Valida.class.getMethod("validaInteres", Double.class));
                 interes/=100;
                 int posicionSistema=obtenerInt("Seleccione el tipo de sistema:","Sistema de amortización inexistente",
