@@ -62,10 +62,14 @@ public class AbstractControlador {
     private void actualizarVista(DtoSistema dto){
         vista.mostrarInformacion(dto);
     }
-    private void actualizarBitacora(DtoSistema dto){
+    private void actualizarBitacora(DtoSistema dto) throws Exception{
+        try{
         System.loadLibrary("cppLibreriaBitacora");
         this.escribir(String.valueOf(dto.getMonto()),String.valueOf(dto.getInteres()), String.valueOf(dto.getPeriodo()), 
                 dto.getTipoMoneda(), dto.getSistemaAmortizacion(), dto.getNombreCliente());
+        }catch(Exception error){
+            throw  new Exception("Se debe cargar la libreria, información en la documentació.");
+        }
     }
     private native void escribir(String monto, String interes, String periodo, String tipoMoneda, String SistemaAmortizacion, String nombreCliente);
 }
